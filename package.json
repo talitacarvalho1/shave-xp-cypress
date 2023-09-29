@@ -1,0 +1,23 @@
+{
+  "name": "shave-xp-cypress",
+  "version": "1.0.0",
+  "description": "E2E test project for Shave eXperience system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "cypress",
+    "xp",
+    "cypress",
+    "experience",
+    "qax"
+  ],
+  "author": "Talita Carvalho",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.7.0"
+  }
+}
