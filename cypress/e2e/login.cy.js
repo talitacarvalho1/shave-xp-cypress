@@ -1,27 +1,23 @@
 import loginPage from '../support/pages/login'
 import shaversPage from '../support/pages/shavers'
 
+import data from '../fixtures/users-login.json'
+
 describe('login', () => {
+
+
 
     context('when I submit the form', () => {
 
         it('should log in successfully', () => {
-            const user = {
-                name: 'talita',
-                email: 'talita@mail.com',
-                password: 'pwd123'
-            }
+            const user = data.success
 
             loginPage.submit(user.email, user.password)
             shaversPage.header.userShouldBeLoggedIn(user.name)
         })
 
         it('should not log in with an invalid password', () => {
-            const user = {
-                name: 'talita',
-                email: 'talita@mail.com',
-                password: '123456'
-            }
+            const user = data.invalidpass
 
             loginPage.submit(user.email, user.password)
 
@@ -31,11 +27,7 @@ describe('login', () => {
         })
 
         it('should not log in with unregistered email', () => {
-            const user = {
-                name: 'talita',
-                email: 'talita@404.com',
-                password: '123456'
-            }
+            const user = data.unregisteredemail
 
             loginPage.submit(user.email, user.password)
 
@@ -50,16 +42,7 @@ describe('login', () => {
     })
 
     context('short passwords', () => {
-
-        const passwords = [
-            '1',
-            '12',
-            '123',
-            '1234',
-            '12345'
-        ]
-
-        passwords.forEach((p) => {
+        data.shortpass.forEach((p) => {
             it(`should not log in using the password: ${p}`, () => {
                 loginPage.submit('talita@mail.com', p)
                 loginPage.alertShouldBe('Pelo menos 6 caracteres')
@@ -68,18 +51,7 @@ describe('login', () => {
     })
 
     context('invalid emails', () => {
-        const emails = [
-            'name&gmail.com',
-            'name.com',
-            '@gmail.com',
-            '@',
-            'name@',
-            '1132248',
-            '@%&#^#*#',
-            'xpto123'
-        ]
-
-        emails.forEach((e) => {
+        data.invalidemails.forEach((e) => {
             it(`should not log in using the email: ${e}`, () => {
                 loginPage.submit(e, 'pwd123')
                 loginPage.alertShouldBe('Informe um email válido')

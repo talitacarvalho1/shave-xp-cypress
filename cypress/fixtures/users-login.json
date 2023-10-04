@@ -1,0 +1,32 @@
+{
+  "success": {
+      "name": "talita",
+      "email": "talita@mail.com",
+      "password": "pwd123"
+  },
+  "invalidpass": {
+      "email": "talita@mail.com",
+      "password": "abc123"
+  },
+  "unregisteredemail": {
+      "email": "talita@404.com",
+      "password": "pwd123"
+  },
+  "shortpass": [
+      "1",
+      "12",
+      "123",
+      "1234",
+      "12345"
+  ],
+  "invalidemails": [
+      "name&gmail.com",
+      "name.com",
+      "@gmail.com",
+      "@",
+      "name@",
+      "1132248",
+      "@%&#^#*#",
+      "xpto123"
+  ]
+}
